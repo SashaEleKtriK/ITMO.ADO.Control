@@ -1,0 +1,66 @@
+﻿<Window x:Class="ITMO.ADO.Control.InventaryWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ITMO.ADO.Control"
+        mc:Ignorable="d"
+        Title="InventaryWindow" Height="600" Width="879">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="35*"/>
+            <ColumnDefinition Width="30*"/>
+            <ColumnDefinition Width="30*"/>
+            <ColumnDefinition Width="30*"/>
+            <ColumnDefinition Width="15*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30*"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="20*"/>
+            <RowDefinition Height="30*"/>
+            <RowDefinition Height="30*"/>
+        </Grid.RowDefinitions>
+        <Grid  Grid.Row="0" Grid.Column="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="30*"/>
+                <RowDefinition Height="30*"/>
+                <RowDefinition Height="30*"/>
+                <RowDefinition Height="30*"/>
+            </Grid.RowDefinitions>
+            <Label Name="FirstName" Content="FirstName" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+            <Label Name="FatherName" Content="FatherName" HorizontalAlignment="Left" Grid.Row="1" VerticalAlignment="Center"/>
+            <Label Name="LastName" Content="LastName" HorizontalAlignment="Left" Grid.Row="2" VerticalAlignment="Center"/>
+            <Label Name="Post" Content="Post" HorizontalAlignment="Left"  Grid.Row="3" VerticalAlignment="Center"/>
+
+        </Grid>
+        <ComboBox x:Name="inventaryList"  Grid.Column="0" HorizontalAlignment="Center"  Grid.Row="2" VerticalAlignment="Center" Width="170" SelectionChanged="inventaryList_SelectionChanged"/>
+        <ComboBox x:Name="invNum" Grid.Column="1" HorizontalAlignment="Center"  Grid.Row="2" VerticalAlignment="Center" Width="120" SelectionChanged="invNum_SelectionChanged"/>
+        <Grid Grid.Row="2" Grid.Column="2" ButtonBase.Click="radio_Checked">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="30*"/>
+                <RowDefinition Height="30*"/>
+                <RowDefinition Height="30*"/>
+
+            </Grid.RowDefinitions>
+            <Button x:Name ="but1" Content="Выписать" Tag="1"  />
+            <Button x:Name="but0" Content="Списать" Tag="0"  Grid.Row="1"  />
+            <Border BorderBrush="Black" BorderThickness="1" Grid.RowSpan="3"/>
+        </Grid>
+        <ComboBox x:Name="substationBox" Grid.Column="3" HorizontalAlignment="Center" Margin="0,32,0,0" Grid.Row="2" VerticalAlignment="Top" Width="120"/>
+        <Label Content="Выберите тип" HorizontalAlignment="Center" Grid.Row="1" Grid.Column="0" VerticalAlignment="Center"/>
+        <Label Content="Выберите номер" HorizontalAlignment="Center" Grid.Row="1" Grid.Column="1" VerticalAlignment="Center"/>
+        <Label Content="Нажмите, чтобы переключиться" HorizontalAlignment="Center" Grid.Row="1" Grid.Column="2" VerticalAlignment="Center"/>
+        <Label Content="Выберите подстанцию" HorizontalAlignment="Center" Grid.Row="1"  Grid.Column="3" VerticalAlignment="Center"/>
+        <ListBox x:Name="logBox" Grid.Row="3" Grid.ColumnSpan="4" Grid.RowSpan="2" d:ItemsSource="{d:SampleData ItemCount=5}"/>
+        <Border BorderBrush="Black" BorderThickness="1" Grid.Row="1"/>
+        <Border BorderBrush="Black" BorderThickness="1" Grid.Row="2"/>
+        <Border BorderBrush="Black" BorderThickness="1" Grid.Column="1" Grid.Row="1"/>
+        <Border BorderBrush="Black" BorderThickness="1" Grid.Column="1" Grid.Row="2"/>
+        <Border BorderBrush="Black" BorderThickness="1" Grid.Column="2" Grid.Row="1"/>
+        <Border BorderBrush="Black" BorderThickness="1" Grid.Column="3" Grid.Row="2"/>
+        <Border BorderBrush="Black" BorderThickness="1" Grid.Column="3" Grid.Row="1"/>
+        <Button x:Name="confirmBtn" Grid.Column="4" Content="Подтвердить" HorizontalAlignment="Center"  Grid.Row="2" VerticalAlignment="Bottom" Click="confirmBtn_Click"/>
+        <Button Grid.Column="1" Content="Закрыть окно" HorizontalAlignment="Center" VerticalAlignment="Center" Click="Button_Click"/>
+    </Grid>
+</Window>
