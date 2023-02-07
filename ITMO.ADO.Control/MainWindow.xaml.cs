@@ -49,8 +49,15 @@ namespace ITMO.ADO.Control
             {
                 string name = nameBOX.Text;
                 string pas = password.Text;
-
-                teststring = $@"Provider=SQLOLEDB.1;Persist Security Info=False;Initial Catalog=LogCable;User Id = {name}; Password = {pas}; Data Source={dtSource.Text}" ;
+                if (isLocal.IsChecked== true)
+                {
+                    teststring = $@"Provider=MSOLEDBSQL.1; Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename={dtSource.Text}; User Id = {name}; Password = {pas}";
+                }
+                else
+                {
+                    teststring = $@"Provider=SQLOLEDB.1;Persist Security Info=False;Initial Catalog=LogCable;User Id = {name}; Password = {pas}; Data Source={dtSource.Text}";
+                }
+               
                 connection.ConnectionString = teststring;
                 connection.Open();
                 OleDbCommand command = connection.CreateCommand();
@@ -117,6 +124,23 @@ namespace ITMO.ADO.Control
             finally
             { connection.Close(); }
            
+        }
+
+        private void dtSource_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
+
+        private void CheckBox_Checked(object sender, RoutedEventArgs e)
+        {
+            label.Content = "AttachDbFilename";
+            dtSource.Text = "C:\\Users\\HP\\source\\repos\\ITMO.ADO.Control\\ITMO.ADO.Control\\LogCable.mdf";
+        }
+
+        private void CheckBox_Unchecked(object sender, RoutedEventArgs e)
+        {
+            label.Content = "Data Source";
+            dtSource.Text = "DESKTOP-LE67O4M\\SQLEXPRESS";
         }
     }
 }

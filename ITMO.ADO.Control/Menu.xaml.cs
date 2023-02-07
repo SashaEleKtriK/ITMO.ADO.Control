@@ -35,6 +35,7 @@ namespace ITMO.ADO.Control
         }
         private void win_closed(object sender, EventArgs e)
         {
+            this.IsEnabled = true;
             this.Activate();
         }
 
@@ -43,6 +44,7 @@ namespace ITMO.ADO.Control
             Button btn = e.Source as Button;
             string text = btn.Content.ToString();
             int tag = 0;
+            this.IsEnabled = false;
             if (text.Length>0)
             {
                 tag = Int32.Parse(btn.Tag.ToString());
