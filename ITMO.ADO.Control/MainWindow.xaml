@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ITMO.ADO.Control"
         mc:Ignorable="d"
-        Title="Авторизация" Height="200" Width="400" Background="#FFC3F0F0">
+        Title="Авторизация" Height="200" Width="476" Background="#FFC3F0F0">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="30*"/>
@@ -15,7 +15,7 @@
         <Grid  Grid.Row="1">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="30*"/>
-                <ColumnDefinition Width="70*"/>
+                <ColumnDefinition Width="100*"/>
                 <ColumnDefinition Width="30*"/>
             </Grid.ColumnDefinitions>
             <Grid x:Name="LogIn" Grid.Column="1" Background="AliceBlue">
@@ -32,11 +32,12 @@
                 </Grid.RowDefinitions>
                 <Label Content="Логин" HorizontalAlignment="Left" Grid.Row="0" Grid.Column="0" VerticalAlignment="Center"/>
                 <Label Content="Пароль" HorizontalAlignment="Left" Grid.Row="1" Grid.Column="0" VerticalAlignment="Center"/>
-                <Label Content="Data Source" HorizontalAlignment="Left" Grid.Row="2" Grid.Column="0" VerticalAlignment="Center"/>
+                <Label x:Name="label" Content="Data Source" HorizontalAlignment="Left" Grid.Row="2" Grid.Column="0" VerticalAlignment="Center"/>
                 <TextBox x:Name="nameBOX" Grid.Column="1" HorizontalAlignment="Left" Grid.Row="0" TextWrapping="Wrap" Text="sa" VerticalAlignment="Center" Width="120"/>
                 <TextBox x:Name="password" Grid.Column="1" HorizontalAlignment="Left" Grid.Row="1"  TextWrapping="Wrap" Text="" VerticalAlignment="Center" Width="120"/>
-                <TextBox x:Name="dtSource" Grid.Column="0" Grid.ColumnSpan="2"  Grid.Row="3"  TextWrapping="Wrap" Text="DESKTOP-LE67O4M\SQLEXPRESS"  />
+                <TextBox x:Name="dtSource" Grid.Column="0" Grid.ColumnSpan="2"  Grid.Row="3"  TextWrapping="Wrap" Text="DESKTOP-LE67O4M\SQLEXPRESS" TextChanged="dtSource_TextChanged"  />
                 <Button x:Name="but" Grid.Column="1" Content="Авторизоваться" Click="Button_Click" HorizontalAlignment="Center" Grid.Row="4" VerticalAlignment="Center"/>
+                <CheckBox x:Name="isLocal" Grid.Column="1" Content="localdb" HorizontalAlignment="Left" Margin="10,0,0,0" Grid.Row="2" VerticalAlignment="Center" IsChecked="True" Checked="CheckBox_Checked" Unchecked="CheckBox_Unchecked"/>
 
             </Grid>
 
