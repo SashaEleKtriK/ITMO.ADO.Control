@@ -134,7 +134,7 @@ namespace ITMO.ADO.Control
         private void CheckBox_Checked(object sender, RoutedEventArgs e)
         {
             label.Content = "AttachDbFilename";
-            dtSource.Text = "C:\\Users\\HP\\source\\repos\\ITMO.ADO.Control\\ITMO.ADO.Control\\LogCable.mdf";
+            dtSource.Text = "C:\\Users\\HP\\source\\repos\\ITMO.ADO.Control\\DB\\LogCable.mdf";
         }
 
         private void CheckBox_Unchecked(object sender, RoutedEventArgs e)
